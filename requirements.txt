@@ -1,0 +1,18 @@
+# Liste des bibliothèques Python nécessaires au projet
+# Ces dépendances seront installées automatiquement dans le conteneur Docker
+
+# Client officiel pour interagir avec MongoDB
+pymongo
+
+# Bibliothèque permettant la gestion des connexions MongoDB avec le protocole SRV
+# (obligatoire pour se connecter à MongoDB Atlas avec un URI en "mongodb+srv://")
+dnspython
+
+# Manipulation et transformation des données sous forme de DataFrame
+pandas
+
+# Outil avancé de gestion des logs (meilleur que logging de base)
+loguru
+
+# Client AWS Python pour interagir avec S3, DynamoDB, et d'autres services AWS
+boto3

@@ -1,0 +1,24 @@
+[project]
+name = "forecast2-docker"
+version = "0.1.0"
+description = "Intégrer des données météorologiques issues de sources ouvertes (InfoClimat, Weather Underground) dans une base MongoDB sur AWS pour améliorer les prévisions de la demande d'électricité."
+authors = [
+    {name = "Sorouz"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas (>=2.2.3,<3.0.0)",
+    "boto3 (>=1.37.11,<2.0.0)",
+    "pyarrow (>=19.0.1,<20.0.0)",
+    "openpyxl (>=3.1.5,<4.0.0)",
+    "pymongo (>=4.11.2,<5.0.0)",
+    "polars (>=1.24.0,<2.0.0)",
+    "numpy (>=2.2.3,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
