@@ -49,8 +49,9 @@ logger.info("🚀 Démarrage du script de téléchargement depuis S3.")
 # Définition des répertoires S3 et des types de fichiers associés
 # -----------------------------------------------------------------------------
 S3_DIRECTORIES = {
-    "infoclimat": "raw_data/s3_forecast_json/",   # Par exemple, données Infoclimat en JSON/JSONL ou Parquet
-    "weatherunderground": "raw_data/s3_forecast_excel/"  # Par exemple, données WeatherUnderground en Excel
+    "infoclimat": "backup_data/infoclimat/",   
+    "weather_ichtegem": "backup_data/weather_ichtegem/" ,
+    "weather_la_madeleine": "backup_data/weather_la_madeleine/"   
 }
 
 # Répertoire local pour stocker les fichiers extraits
@@ -123,7 +124,7 @@ def download_file(s3_key: str, file_type: str) -> Optional[str]:
     Le fichier est sauvegardé avec son extension d'origine.
     
     :param s3_key: Chemin du fichier dans S3.
-    :param file_type: Préfixe pour nommer le fichier localement (ex: "infoclimat", "weatherunderground").
+    :param file_type: Préfixe pour nommer le fichier localement (ex: "infoclimat", "weather_ichtegem","weather_la_madeleine").
     :return: Chemin local du fichier téléchargé ou None en cas d'erreur.
     """
     logger.info(f"📥 Téléchargement du fichier {s3_key} depuis S3...")
