@@ -1,9 +1,17 @@
 # 📦 Importation de la bibliothèque pour interagir avec MongoDB
 from pymongo import MongoClient  # Client MongoDB pour se connecter à la base de données
+import os               # Pour interagir avec le système de fichiers
+from dotenv import load_dotenv  # Pour charger les variables d'environnement depuis un fichier .env
+
+# =============================================================================
+# Chargement des variables d'environnement et définition des constantes
+# =============================================================================
+
+# Charge automatiquement les variables d'environnement depuis le fichier .env
+load_dotenv()
 
 # 🔗 Définition de l'URI de connexion à MongoDB Atlas
-# Remplace les identifiants ci-dessous par les tiens si besoin
-MONGO_URI = "mongodb+srv://Sorouz:Sorouz&0512@nimbusdb.glwzm.mongodb.net/weather_db"
+MONGO_URI = os.getenv("MONGO_URI")
 
 try:
     # 🛠️ Création du client MongoDB avec l'URI de connexion

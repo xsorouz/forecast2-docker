@@ -1,18 +1,30 @@
-# Liste des bibliothèques Python nécessaires au projet
-# Ces dépendances seront installées automatiquement dans le conteneur Docker
+# === Connexion MongoDB (Atlas ou local)
+pymongo==4.11.2           # Librairie officielle pour interagir avec MongoDB depuis Python
+dnspython==2.7.0          # Résolution DNS requise pour MongoDB Atlas (SRV)
 
-# Client officiel pour interagir avec MongoDB
-pymongo
+# === Manipulation de données
+pandas==2.2.3             # Traitement de données tabulaires (CSV, JSON, analyse)
+numpy==2.2.3              # Calcul numérique utilisé par pandas
+python-dateutil==2.9.0.post0  # Meilleure gestion des dates (complète datetime)
+pytz==2025.1              # Gestion des fuseaux horaires (utilisé par pandas)
+tzdata==2025.1            # Données de fuseau horaire
 
-# Bibliothèque permettant la gestion des connexions MongoDB avec le protocole SRV
-# (obligatoire pour se connecter à MongoDB Atlas avec un URI en "mongodb+srv://")
-dnspython
+# === Traitement avancé (optionnel)
+pyarrow==19.0.1           # Lecture/écriture de fichiers Parquet (utilisé avec pandas)
+polars==1.24.0            # Alternative performante à pandas (non obligatoire)
+openpyxl==3.1.5           # Lecture/écriture de fichiers Excel (xlsx)
+et-xmlfile==2.0.0         # Dépendance de openpyxl
 
-# Manipulation et transformation des données sous forme de DataFrame
-pandas
+# === Cloud AWS S3
+boto3==1.37.11            # SDK AWS pour Python (utilisé pour accéder à S3)
+botocore==1.37.11         # Composant de base de boto3
+s3transfer==0.11.4        # Utilitaire de transfert de fichiers S3
+jmespath==1.0.1           # Requêtage JSON utilisé par boto3
 
-# Outil avancé de gestion des logs (meilleur que logging de base)
-loguru
+# === Logs et environnement
+loguru==0.7.2             # Logger moderne et très lisible
+python-dotenv==1.0.1      # Chargement automatique du fichier .env
 
-# Client AWS Python pour interagir avec S3, DynamoDB, et d'autres services AWS
-boto3
+# === Réseaux et compatibilité
+six==1.17.0               # Compatibilité Python 2/3 (utilisé par d'autres libs)
+urllib3==2.3.0            # Requêtes HTTP (utilisé par boto3 notamment)

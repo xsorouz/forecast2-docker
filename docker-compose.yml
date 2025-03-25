@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  forecast_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: forecast2-pipeline
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+      - ./processed:/app/processed
+      - ./logs:/app/logs
+
+    working_dir: /app
+    command: ["python", "src/main_mongodb.py"]
+
+    networks:
+      - forecast_network
+
+networks:
+  forecast_network:
+    driver: bridge
